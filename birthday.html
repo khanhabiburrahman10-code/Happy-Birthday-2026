@@ -10,6 +10,12 @@
 
 body {
 
+  <audio id="bgMusic" loop>
+
+<source src="øneheart - apathy [FgjA9EuxIlY]" type="audio/mpeg">
+
+</audio>
+
 background:#080808;
 color:white;
 font-family:Arial, sans-serif;
@@ -274,7 +280,20 @@ transform:translateY(110vh) rotate(720deg);
 
 </style>
 
+<script>
 
+window.addEventListener("load", function(){
+
+let music = document.getElementById("bgMusic");
+
+music.volume = 0.25;
+
+music.play();
+
+});
+
+</script>
+  
 </body>
 
 </html>
