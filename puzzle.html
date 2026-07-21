@@ -1,376 +1,50 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-
-<title>Project T-14 | Challenge</title>
-
-
-<style>
-
-body {
-
-background:#0b0b0b;
-color:white;
-font-family:Arial;
-text-align:center;
-padding:30px;
-
-}
-
-
-.container {
-
-max-width:700px;
-margin:auto;
-
-}
-
-
-.box {
-
-background:#111;
-border:2px solid #444;
-border-radius:15px;
-padding:25px;
-margin-top:25px;
-
-}
-
-
-h1 {
-
-letter-spacing:3px;
-
-}
-
-
-h2 {
-
-color:#aaa;
-
-}
-
-
-.equation {
-
-margin:20px;
-padding:15px;
-border:1px solid #333;
-border-radius:10px;
-
-}
-
-
-input {
-
-background:#000;
-color:white;
-border:1px solid #555;
-
-padding:10px;
-
-font-size:18px;
-
-width:120px;
-
-text-align:center;
-
-}
-
-
-button {
-
-margin-top:20px;
-
-padding:10px 30px;
-
-background:white;
-color:black;
-
-border:none;
-border-radius:8px;
-
-font-size:16px;
-
-cursor:pointer;
-
-}
-
-
-.correct {
-
-color:#00ff66;
-
-font-size:20px;
-
-}
-
-
-.hidden {
-
-display:none;
-
-}
-
-
-.digits input {
-
-width:45px;
-
-font-size:25px;
-
-}
-
-
-.label {
-
-font-size:11px;
-color:#777;
-
-margin:5px;
-
-}
-
-
-</style>
-
-
-</head>
-
-
-
-<body>
-
-
-
-<div class="container">
-
-
-<h1>PROJECT: T-14</h1>
-
-<h2>SECURITY CHALLENGE</h2>
-
-
-<div class="box">
-
-
-<p>
-Solve all five equations to unlock the next stage.
-</p>
-
-
-
-<div class="equation">
-
-Equation 1
-
-<br><br>
-
-(8 × {(250 - 70) ÷ 3} + {60000 - 2089})
-
-<br>
-
-<input id="answer1">
-
-<span id="tick1"></span>
-
-</div>
-
-
-
-<div class="equation">
-
-Equation 2
-
-<br><br>
-
-(9 × {(400 - 100) ÷ 6} + {75000 - 1324})
-
-<br>
-
-<input id="answer2">
-
-<span id="tick2"></span>
-
-</div>
-
-
-
-
-<div class="equation">
-
-Equation 3
-
-<br><br>
-
-(12 × {(300 - 150) ÷ 5} + {92000 - 1903})
-
-<br>
-
-<input id="answer3">
-
-<span id="tick3"></span>
-
-</div>
-
-
-
-
-<div class="equation">
-
-Equation 4
-
-<br><br>
-
-(7 × {(500 - 200) ÷ 3} + {32000 - 836})
-
-<br>
-
-<input id="answer4">
-
-<span id="tick4"></span>
-
-</div>
-
-
-
-
-<div class="equation">
-
-Equation 5
-
-<br><br>
-
-(15 × {(200 - 80) ÷ 6} + {68000 - 1005})
-
-<br>
-
-<input id="answer5">
-
-<span id="tick5"></span>
-
-</div>
-
-
-
-<button onclick="checkAnswers()">
-SUBMIT ANSWERS
-</button>
-
-
-
-</div>
-
-
-
-
-<div id="stage2" class="box hidden">
-
-
-<h2>
-STAGE 2 UNLOCKED 🔓
-</h2>
-
-
-<p>
-Extract the correct digits from each answer.
-</p>
-
-
-
-<div class="digits">
-
-
-<input maxlength="1">
-<input maxlength="1">
-<input maxlength="1">
-<input maxlength="1">
-<input maxlength="1">
-
-
-<br>
-
-
-<span class="label">
-EQ.1
-</span>
-
-<span class="label">
-EQ.2
-</span>
-
-<span class="label">
-EQ.3
-</span>
-
-<span class="label">
-EQ.4
-</span>
-
-<span class="label">
-EQ.5
-</span>
-
-
-</div>
-
-
-</div>
-
-
-
-
-</div>
-
-
-
-
 <script>
-
 
 function checkAnswers(){
 
-let correct = true;
+    let correct = true;
+
+    let answers = [
+        "58391",
+        "74126",
+        "90457",
+        "31864",
+        "67295"
+    ];
 
 
-let answers = [
-"58391",
-"74126",
-"90457",
-"31864",
-"67295"
-];
+    for(let i = 1; i <= 5; i++){
+
+        let input = document.getElementById("answer" + i).value.trim();
+
+        let tick = document.getElementById("tick" + i);
 
 
-for(let i = 1; i <= 5; i++){
+        if(input === answers[i-1]){
 
-let input = document.getElementById("answer"+i).value;
+            tick.innerHTML = "✅";
+            tick.className = "correct";
 
-let tick = document.getElementById("tick"+i);
+        }
+
+        else{
+
+            tick.innerHTML = "❌";
+            tick.style.color = "red";
+
+            correct = false;
+
+        }
+
+    }
 
 
-if(input === answers[i-1]){
+    if(correct){
 
-tick.innerHTML = "✅";
-tick.className = "correct";
+        document.getElementById("stage2").classList.remove("hidden");
+
+    }
 
 }
 
-else{
-
-tick.innerHTML = "❌";
-correct = false;
-
-}
-
-}
-
-
-if(correct){
-
-document.getElementById("stage2").style.display="block";
-
-}
-
-}
+</script>
