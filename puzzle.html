@@ -44,13 +44,42 @@ h2 {
 }
 
 input {
-    background:#000;
-    color:white;
-    border:1px solid #555;
-    padding:10px;
-    font-size:18px;
-    width:120px;
-    text-align:center;
+
+background:#000;
+color:white;
+border:1px solid #555;
+
+padding:10px;
+
+font-size:18px;
+
+width:120px;
+
+text-align:center;
+
+}
+
+
+#stage2 input {
+
+width:45px;
+
+height:45px;
+
+font-size:25px;
+
+padding:0;
+
+margin:5px;
+
+}
+    
+#stage2 input:focus {
+
+border:2px solid #00ff66;
+
+outline:none;
+
 }
 
 button {
@@ -248,15 +277,6 @@ LOCK DIGITS
 
 
 <p id="digitMessage"></p>
-
-
-<div id="stage2" class="box">
-
-<h2>STAGE 2 UNLOCKED 🔓</h2>
-
-<p>
-Extract the digits:
-</p>
 
 <p>
 EQ.1 → 3rd digit<br>
@@ -512,8 +532,29 @@ message.innerHTML="❌ Incorrect code";
 message.style.color="red";
 
 }
+    let digitInputs = document.querySelectorAll("#stage2 input");
+
+
+digitInputs.forEach((input,index)=>{
+
+
+input.addEventListener("input",()=>{
+
+
+if(input.value.length===1 && index < digitInputs.length-1){
+
+digitInputs[index+1].focus();
 
 }
+
+
+});
+
+
+});
+
+}
+    
     
 </script>
 
