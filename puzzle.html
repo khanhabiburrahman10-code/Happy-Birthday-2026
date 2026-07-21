@@ -275,29 +275,6 @@ EQ.1 &nbsp;&nbsp; EQ.2 &nbsp;&nbsp; EQ.3 &nbsp;&nbsp; EQ.4 &nbsp;&nbsp; EQ.5
 LOCK DIGITS
 </button>
 
-
-<p id="digitMessage"></p>
-
-<p>
-EQ.1 → 3rd digit<br>
-EQ.2 → 5th digit<br>
-EQ.3 → 2nd digit<br>
-EQ.4 → 4th digit<br>
-EQ.5 → 1st digit
-</p>
-
-<input id="digit1" maxlength="1">
-<input id="digit2" maxlength="1">
-<input id="digit3" maxlength="1">
-<input id="digit4" maxlength="1">
-<input id="digit5" maxlength="1">
-
-<br><br>
-
-<button onclick="checkDigits()">
-CONTINUE
-</button>
-
 <p id="digitMessage"></p>
 
 
@@ -306,10 +283,27 @@ CONTINUE
 <h2>FINAL ACCESS 🔐</h2>
 
 <p>
-Ready to see if its correct?
+The extraction is complete.
+    
+Enter the 5-digit access code.
 </p>
 
-<input id="codeInput" maxlength="5">
+<input id="codeInput"
+maxlength="5"
+placeholder="Enter 5-digit code">
+    #codeInput{
+
+width:180px;
+
+height:48px;
+
+font-size:28px;
+
+letter-spacing:10px;
+
+border-radius:8px;
+
+}
 
 <br>
 
@@ -480,7 +474,18 @@ let message=document.getElementById("digitMessage");
 
 if(correct){
 
-message.innerHTML="✅ DIGITS LOCKED";
+message.innerHTML="✅ DIGITS LOCKED.";
+    let btn = document.querySelector("#stage2 button");
+
+btn.innerHTML = "CONTINUE →";
+
+btn.onclick = function(){
+
+document.getElementById("finalCode").scrollIntoView({
+behavior:"smooth"
+});
+
+};
 
 message.style.color="#00ff66";
 
