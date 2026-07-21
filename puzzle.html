@@ -164,8 +164,79 @@ SUBMIT ANSWERS
 <h2>STAGE 2 UNLOCKED 🔓</h2>
 
 <p>
-Digit extraction coming next...
+Extract the correct digit from each equation answer.
 </p>
+
+
+<p>
+Equation 1 → Take the 3rd digit
+<br>
+Equation 2 → Take the 5th digit
+<br>
+Equation 3 → Take the 2nd digit
+<br>
+Equation 4 → Take the 4th digit
+<br>
+Equation 5 → Take the 1st digit
+</p>
+
+
+<h3>Enter extracted digits:</h3>
+
+
+<input id="digit1" maxlength="1">
+<input id="digit2" maxlength="1">
+<input id="digit3" maxlength="1">
+<input id="digit4" maxlength="1">
+<input id="digit5" maxlength="1">
+
+
+<br><br>
+
+
+<span style="color:#777;font-size:12px;">
+EQ.1 &nbsp;&nbsp; EQ.2 &nbsp;&nbsp; EQ.3 &nbsp;&nbsp; EQ.4 &nbsp;&nbsp; EQ.5
+</span>
+
+
+<br>
+
+
+<button onclick="checkDigits()">
+LOCK DIGITS
+</button>
+
+
+<p id="digitMessage"></p>
+
+
+<div id="finalCode" class="hidden">
+
+<h2>
+FINAL ACCESS 🔐
+</h2>
+
+
+<p>
+Ready to see if the code is correct?
+</p>
+
+
+<input id="codeInput" maxlength="5">
+
+
+<br>
+
+<button onclick="checkCode()">
+ENTER
+</button>
+
+
+<p id="codeMessage"></p>
+
+
+</div>
+
 
 </div>
 
@@ -223,6 +294,94 @@ document.getElementById("stage2").classList.remove("hidden");
 
 }
 
+function checkDigits(){
+
+let digits = [
+"3",
+"6",
+"0",
+"6",
+"6"
+];
+
+
+let correct = true;
+
+
+for(let i=1;i<=5;i++){
+
+let input = document.getElementById("digit"+i).value.trim();
+
+
+if(input !== digits[i-1]){
+
+correct=false;
+
+}
+
+}
+
+
+let message=document.getElementById("digitMessage");
+
+
+if(correct){
+
+message.innerHTML="✅ DIGITS LOCKED";
+
+message.style.color="#00ff66";
+
+
+document.getElementById("finalCode").classList.remove("hidden");
+
+
+}
+
+else{
+
+message.innerHTML="❌ Incorrect extraction. Try again.";
+
+message.style.color="red";
+
+}
+
+}
+
+
+
+function checkCode(){
+
+let code=document.getElementById("codeInput").value.trim();
+
+let message=document.getElementById("codeMessage");
+
+
+if(code==="36066"){
+
+message.innerHTML="✅ Correct. Please wait...";
+
+message.style.color="#00ff66";
+
+
+setTimeout(function(){
+
+window.location.href="birthday.html";
+
+},3000);
+
+
+}
+
+else{
+
+message.innerHTML="❌ Incorrect code";
+
+message.style.color="red";
+
+}
+
+}
+    
 </script>
 
 
