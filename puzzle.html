@@ -44,78 +44,24 @@ h2 {
 }
 
 input {
-
-background:#000;
-color:white;
-border:1px solid #555;
-
-padding:10px;
-
-font-size:18px;
-
-width:120px;
-
-text-align:center;
-
-}
-
-
-#stage2 input {
-
-width:45px;
-
-height:45px;
-
-font-size:25px;
-
-padding:0;
-
-margin:5px;
-
-}
-    
-#stage2 input:focus {
-
-border:2px solid #00ff66;
-
-outline:none;
-
+    background:#000;
+    color:white;
+    border:1px solid #555;
+    padding:10px;
+    font-size:18px;
+    width:120px;
+    text-align:center;
 }
 
 button {
-
-margin-top:20px;
-
-padding:12px 35px;
-
-background:white;
-color:black;
-
-border:none;
-border-radius:8px;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:0.3s;
-
-}
-
-
-button:hover {
-
-transform:scale(1.08);
-
-box-shadow:0 0 15px white;
-
-}
-
-
-button:active {
-
-transform:scale(0.95);
-
+    margin-top:20px;
+    padding:10px 30px;
+    background:white;
+    color:black;
+    border:none;
+    border-radius:8px;
+    font-size:16px;
+    cursor:pointer;
 }
 
 .correct {
@@ -129,22 +75,7 @@ transform:scale(0.95);
 }
 
 .hidden {
-
-opacity:0;
-
-pointer-events:none;
-
-height:0;
-
-overflow:hidden;
-
-}
-
-
-#stage2 {
-
-transition:1s;
-
+    display:none;
 }
 
 </style>
@@ -228,7 +159,7 @@ SUBMIT ANSWERS
 </div>
 
 
-<div id="stage2" class="box hidden">
+<div id="stage2" class="box">
 
 <h2>STAGE 2 UNLOCKED 🔓</h2>
 
@@ -278,28 +209,10 @@ LOCK DIGITS
 
 <p id="digitMessage"></p>
 
-<p>
-EQ.1 → 3rd digit<br>
-EQ.2 → 5th digit<br>
-EQ.3 → 2nd digit<br>
-EQ.4 → 4th digit<br>
-EQ.5 → 1st digit
-</p>
 
-<input id="digit1" maxlength="1">
-<input id="digit2" maxlength="1">
-<input id="digit3" maxlength="1">
-<input id="digit4" maxlength="1">
-<input id="digit5" maxlength="1">
+<div id="stage2" class="box">
 
-<br><br>
-
-<button onclick="checkDigits()">
-CONTINUE
-</button>
-
-<p id="digitMessage"></p>
-
+<h2>STAGE 2 UNLOCKED 🔓</h2>
 
 <div id="finalCode">
 
@@ -367,10 +280,9 @@ correct=false;
 
 
 if(correct){
-
-document.getElementById("stage2").classList.remove("hidden");
-
+alert("Stage 1 complete!");
 }
+
 }
 
 
@@ -445,7 +357,7 @@ msg.style.color="red";
 }
 
 </script>
-
+}
 
 function checkDigits(){
 
@@ -532,29 +444,8 @@ message.innerHTML="❌ Incorrect code";
 message.style.color="red";
 
 }
-    let digitInputs = document.querySelectorAll("#stage2 input");
-
-
-digitInputs.forEach((input,index)=>{
-
-
-input.addEventListener("input",()=>{
-
-
-if(input.value.length===1 && index < digitInputs.length-1){
-
-digitInputs[index+1].focus();
 
 }
-
-
-});
-
-
-});
-
-}
-    
     
 </script>
 
