@@ -167,7 +167,7 @@ Equation 1
 
 <br><br>
 
-(Equation goes here)
+(8 × {(250 - 70) ÷ 3} + {60000 - 2089})
 
 <br>
 
@@ -185,7 +185,7 @@ Equation 2
 
 <br><br>
 
-(Equation goes here)
+(9 × {(400 - 100) ÷ 6} + {75000 - 1324})
 
 <br>
 
@@ -204,7 +204,7 @@ Equation 3
 
 <br><br>
 
-(Equation goes here)
+(12 × {(300 - 150) ÷ 5} + {92000 - 1903})
 
 <br>
 
@@ -223,7 +223,7 @@ Equation 4
 
 <br><br>
 
-(Equation goes here)
+(7 × {(500 - 200) ÷ 3} + {32000 - 836})
 
 <br>
 
@@ -242,7 +242,7 @@ Equation 5
 
 <br><br>
 
-(Equation goes here)
+(15 × {(200 - 80) ÷ 6} + {68000 - 1005})
 
 <br>
 
@@ -331,22 +331,46 @@ EQ.5
 
 function checkAnswers(){
 
-
-/*
-Answers will be added later
-*/
+let correct = true;
 
 
-document.getElementById("stage2").style.display="block";
+let answers = [
+"58391",
+"74126",
+"90457",
+"31864",
+"67295"
+];
 
+
+for(let i = 1; i <= 5; i++){
+
+let input = document.getElementById("answer"+i).value;
+
+let tick = document.getElementById("tick"+i);
+
+
+if(input === answers[i-1]){
+
+tick.innerHTML = "✅";
+tick.className = "correct";
+
+}
+
+else{
+
+tick.innerHTML = "❌";
+correct = false;
+
+}
 
 }
 
 
-</script>
+if(correct){
 
+document.getElementById("stage2").style.display="block";
 
+}
 
-</body>
-
-</html>
+}
