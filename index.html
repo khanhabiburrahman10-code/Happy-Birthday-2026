@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Project T-14</title>
+
+<style>
+
+body {
+    background: #0b0b0b;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.box {
+    border: 2px solid #444;
+    padding: 40px;
+    width: 350px;
+    border-radius: 15px;
+    background: #111;
+    box-shadow: 0 0 25px #222;
+}
+
+
+h1 {
+    letter-spacing: 4px;
+    font-size: 28px;
+}
+
+
+.subtitle {
+    color: #aaa;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+
+button {
+
+    margin-top: 35px;
+    padding: 12px 45px;
+    font-size: 18px;
+
+    background: transparent;
+    color: white;
+
+    border: 2px solid white;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+button:hover {
+
+    background: white;
+    color: black;
+
+}
+
+
+.warning {
+
+    color: #777;
+    font-size: 12px;
+    margin-top: 25px;
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="box">
+
+
+<h1>PROJECT: T-14</h1>
+
+
+<p class="subtitle">
+A hidden file has been secured.
+</p>
+
+
+<p>
+An unknown challenge awaits.
+<br>
+Only the correct person can continue.
+</p>
+
+
+<button onclick="startMission()">
+START
+</button>
+
+
+<p class="warning">
+⚠ AUTHORIZATION REQUIRED
+</p>
+
+
+</div>
+
+
+
+<script>
+
+function startMission(){
+
+window.location.href = "puzzle.html";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
