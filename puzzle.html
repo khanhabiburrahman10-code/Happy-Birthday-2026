@@ -28,6 +28,34 @@ box-sizing:border-box;
 display:inline-block;
 
 }
+
+    .digitRow{
+
+display:flex;
+
+justify-content:center;
+
+gap:8px;
+
+margin:20px 0;
+
+}
+
+.digitRow input{
+
+width:48px !important;
+
+height:48px !important;
+
+padding:0 !important;
+
+font-size:26px;
+
+text-align:center;
+
+flex:none;
+
+}
     
 <style>
 
@@ -239,11 +267,15 @@ Equation 5 → Take the 1st digit
 <h3>Enter extracted digits:</h3>
 
 
+<div class="digitRow">
+
 <input id="digit1" maxlength="1">
 <input id="digit2" maxlength="1">
 <input id="digit3" maxlength="1">
 <input id="digit4" maxlength="1">
 <input id="digit5" maxlength="1">
+
+</div>
 
 
 <br><br>
@@ -267,11 +299,13 @@ VERIFY DIGITS
 
 <div id="stage2" class="box">
 
-<h2>STAGE 2 UNLOCKED 🔓</h2>
+<h2> STAGE 2 UNLOCKED 🔓 </h2>
 
 <div id="finalCode" class="hidden">
 
-<h2>FINAL ACCESS 🔐</h2>
+<h2 id="finalTitle">
+🔒 FINAL ACCESS LOCKED
+</h2>
 
 <p>
 The extraction is complete.
@@ -372,6 +406,11 @@ msg.innerHTML="✅ DIGITS VERIFICATION COMPLETE";
 
 msg.style.color="lime";
 
+document.getElementById("finalTitle").innerHTML =
+"🔓 FINAL ACCESS UNLOCKED";
+
+document.getElementById("finalCode").classList.remove("hidden");
+    
     document.getElementById("finalCode").classList.remove("hidden");
 
 document.getElementById("finalCode").scrollIntoView({
