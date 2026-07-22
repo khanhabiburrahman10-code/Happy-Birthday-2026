@@ -5,6 +5,30 @@
 
 <title>Project T-14 | Challenge</title>
 
+#stage2 input{
+
+width:45px;
+
+height:45px;
+
+padding:0;
+
+margin:4px;
+
+font-size:24px;
+
+text-align:center;
+
+box-sizing:border-box;
+
+}
+
+#digit1,#digit2,#digit3,#digit4,#digit5{
+
+display:inline-block;
+
+}
+    
 <style>
 
 body {
@@ -59,15 +83,40 @@ input {
     text-align:center;
 }
 
-button {
-    margin-top:20px;
-    padding:10px 30px;
-    background:white;
-    color:black;
-    border:none;
-    border-radius:8px;
-    font-size:16px;
-    cursor:pointer;
+button{
+
+margin-top:20px;
+
+padding:12px 35px;
+
+background:white;
+
+color:black;
+
+border:none;
+
+border-radius:8px;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:.25s;
+
+}
+
+button:hover{
+
+transform:translateY(-2px) scale(1.05);
+
+box-shadow:0 0 18px white;
+
+}
+
+button:active{
+
+transform:scale(.96);
+
 }
 
 .correct {
@@ -165,7 +214,7 @@ SUBMIT ANSWERS
 </div>
 
 
-<div id="stage2" class="box">
+<div id="stage2" class="box hidden">
 
 <h2>STAGE 2 UNLOCKED 🔓</h2>
 
@@ -288,7 +337,13 @@ correct=false;
 
 
 if(correct){
-alert("Stage 1 complete!");
+
+document.getElementById("stage2").classList.remove("hidden");
+
+document.getElementById("stage2").scrollIntoView({
+behavior:"smooth"
+});
+
 }
 
 }
