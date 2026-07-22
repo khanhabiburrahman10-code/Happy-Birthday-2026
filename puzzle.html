@@ -7,17 +7,17 @@
 
 #stage2 input{
 
-width:45px;
+width:45px !important;
 
-height:45px;
+height:45px !important;
 
-padding:0;
+padding:0 !important;
 
-margin:4px;
+margin:3px !important;
 
-font-size:24px;
+font-size:24px !important;
 
-text-align:center;
+display:inline-block;
 
 box-sizing:border-box;
 
@@ -269,7 +269,7 @@ VERIFY DIGITS
 
 <h2>STAGE 2 UNLOCKED 🔓</h2>
 
-<div id="finalCode">
+<div id="finalCode" class="hidden">
 
 <h2>FINAL ACCESS 🔐</h2>
 
@@ -368,9 +368,15 @@ let msg=document.getElementById("digitMessage");
 
 if(digits===correct){
 
-msg.innerHTML="✅ DIGITS ACCEPTED";
+msg.innerHTML="✅ DIGITS VERIFICATION COMPLETE";
 
 msg.style.color="lime";
+
+    document.getElementById("finalCode").classList.remove("hidden");
+
+document.getElementById("finalCode").scrollIntoView({
+behavior:"smooth"
+});
 
 }
 
@@ -411,12 +417,46 @@ window.location.href="birthday.html";
 
 else{
 
-msg.innerHTML="❌ Incorrect code";
+message.innerHTML="❌ Wrong code.";
 
-msg.style.color="red";
+message.style.color="red";
+
+setTimeout(function(){
+
+message.innerHTML="Restarting Stage 2...";
+
+},1500);
+
+setTimeout(function(){
+
+// Clear digit boxes
+for(let i=1;i<=5;i++){
+
+document.getElementById("digit"+i).value="";
 
 }
 
+// Hide Final Access again
+document.getElementById("finalCode").classList.add("hidden");
+
+// Clear passcode box
+document.getElementById("codeInput").value="";
+
+// Clear messages
+document.getElementById("digitMessage").innerHTML="";
+message.innerHTML="";
+
+// Go back to Stage 2
+document.getElementById("stage2").scrollIntoView({
+behavior:"smooth"
+});
+
+// Focus first digit
+document.getElementById("digit1").focus();
+
+},2500);
+
+}
 }
 
 </script>
